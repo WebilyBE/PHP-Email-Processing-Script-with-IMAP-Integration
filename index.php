@@ -87,8 +87,8 @@ if (isset($_GET['secretKey']) && $_GET['secretKey'] == secret_key) {
     checkAndCreateLogsDirectory();
     
     // Clear IMAP spam folder if $spam_folder is "clear"
-    $spam_folder = isset($_GET['spam']) && !empty($_GET['spam']) ? $_GET['spam'] : 'clear';
-    function clearSpamFolder($inbox, $imap_username, $imap_password, $spam_folder) {
+    $spam_folder = isset($_GET['spam']) && !empty($_GET['spam']) ? $_GET['spam'] : '';
+    function clearSpamFolder($inbox, $imap_username, $imap_password, $spam_folder, $q) {
         if ($spam_folder == "clear") {
             // Open spam folder
             $spamMailbox = '{' . imap_mailbox . ':993/imap/ssl}INBOX.Spam';
@@ -113,7 +113,7 @@ if (isset($_GET['secretKey']) && $_GET['secretKey'] == secret_key) {
     }
 
     // Clear IMAP spam folder if $spam_folder is "clear"
-    clearSpamFolder($inbox, $imap_username, $imap_password, $spam_folder);
+    clearSpamFolder($inbox, $imap_username, $imap_password, $spam_folder, $q);
     
     $blockedEmailsFile = 'logs/blocked_emails.log';
 
