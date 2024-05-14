@@ -1,0 +1,10 @@
+{
+  "general": [
+    "Thank you for your email.",
+    "We will get back to you as soon as possible."
+  ],
+  "invoices": [
+    "Thank you for contacting us regarding invoices.",
+    "Our finance team will review your request shortly."
+  ]
+}
